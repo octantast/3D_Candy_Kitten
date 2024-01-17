@@ -9,11 +9,19 @@ public class LoadMenu : MonoBehaviour
     public Image loading;
     public float timerforloading = 7.5f;
 
+    private float startTime;
+
+    private void Start()
+    {
+        startTime = Time.time;
+    }
+
     private void Update()
     {
-        loading.fillAmount = Mathf.Lerp(loading.fillAmount, 1, Time.deltaTime * 2);
         if (timerforloading > 0)
         {
+            float timeElapsed = Time.time - startTime;
+            loading.fillAmount = timeElapsed / timerforloading;
             timerforloading -= Time.deltaTime;
         }
         else
