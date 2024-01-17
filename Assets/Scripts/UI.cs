@@ -53,7 +53,7 @@ public class UI : MonoBehaviour
     public int tutorial2;
     public int tutorial3;
 
-    public GameObject light;
+    public GameObject lightObject;
     private bool lighton;
     public void Start()
     {
@@ -168,7 +168,7 @@ public class UI : MonoBehaviour
         if (!lighton)
         {
             lighton = true;
-            GameObject lightObj = Instantiate(light, transform.position, Quaternion.Euler(60, -30, 0));
+            GameObject lightObj = Instantiate(lightObject, transform.position, Quaternion.Euler(60, -30, 0));
             lightObj.transform.position = Vector3.zero;
         }
 
@@ -323,8 +323,9 @@ public class UI : MonoBehaviour
             a2active = true;
             foreach (Candy script in general.everyCandyOnScene)
             {
-                script.transform.localScale = new Vector3(script.transform.localScale.z*1.5f, script.transform.localScale.y, script.transform.localScale.z);
+                //script.transform.localScale = new Vector3(script.transform.localScale.z*1.5f, script.transform.localScale.y, script.transform.localScale.z);
                 script.mesh.mesh = general.specialCandy;
+                script.meshrend.material = general.specialCandymaterial;
             }
             if (general.sweetinBowl != null)
             {
@@ -339,10 +340,11 @@ public class UI : MonoBehaviour
         }
         else
         {
-            tipAnimator.enabled = false;
-            tipAnimator.Play("Warning");
-            tipAnimator.enabled = true;
-
+            
+               // tipAnimator.enabled = false;
+                tipAnimator.Play("Warning");
+                tipAnimator.enabled = true;
+            
         }
     }
     public void NextLevel()
@@ -368,8 +370,9 @@ public class UI : MonoBehaviour
     {
         foreach (Candy script in general.everyCandyOnScene)
         {
-            script.transform.localScale = new Vector3(script.transform.localScale.z, script.transform.localScale.y, script.transform.localScale.z);
+            //script.transform.localScale = new Vector3(script.transform.localScale.z, script.transform.localScale.y, script.transform.localScale.z);
             script.mesh.mesh = script.thismesh;
+            script.meshrend.material = script.thismaterial;
             general.cleara2();
         }
     }

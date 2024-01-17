@@ -123,6 +123,8 @@ MonoBehaviour:
   kitten: 0
   plate: 0
   mesh: {fileID: 4251203269219761290}
+  meshrend: {fileID: 1931887445443183548}
+  thismaterial: {fileID: 0}
   thismesh: {fileID: 555399125722588839, guid: 53dd24a5e81bd1843b62c0040c9a8d8b, type: 3}
 --- !u!65 &1790098749269172822
 BoxCollider:

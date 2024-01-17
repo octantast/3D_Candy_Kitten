@@ -123,6 +123,8 @@ MonoBehaviour:
   kitten: 0
   plate: 0
   mesh: {fileID: 6556998048100485517}
+  meshrend: {fileID: 5122194627853184938}
+  thismaterial: {fileID: 0}
   thismesh: {fileID: 6784156119342775433, guid: 53dd24a5e81bd1843b62c0040c9a8d8b,
     type: 3}
 --- !u!65 &1163783829343526076

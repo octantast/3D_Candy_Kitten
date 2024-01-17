@@ -15,6 +15,8 @@ public class Candy : MonoBehaviour
     public bool plate;
 
     public MeshFilter mesh;
+    public MeshRenderer meshrend;
+    public Material thismaterial;
     public Mesh thismesh;
 
    // public Vector3 requiredSize = new Vector3(3, 1, 3);
@@ -25,7 +27,8 @@ public class Candy : MonoBehaviour
         {
             transform.localScale = new Vector3(transform.localScale.x*-1, transform.localScale.y, transform.localScale.z);
         }
-
+        thismaterial = meshrend.material;
+        thismesh = mesh.mesh;
         this.enabled = false;
     }
 

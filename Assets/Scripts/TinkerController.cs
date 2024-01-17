@@ -44,12 +44,15 @@ public class TinkerController : MonoBehaviour
     private void spawnCandies()
     {
         // candies respawn
-        if (transform.childCount > 0)
+        if (transform.childCount > 1)
         {
             foreach (Transform child in transform)
             {
-                generalController.everyCandyOnScene.Remove(child.gameObject.GetComponent<Candy>());
-                Destroy(child.gameObject);
+                if (child.GetSiblingIndex() != 0)
+                {
+                    generalController.everyCandyOnScene.Remove(child.gameObject.GetComponent<Candy>());
+                    Destroy(child.gameObject);
+                }
             }
         }
 
@@ -82,7 +85,7 @@ public class TinkerController : MonoBehaviour
             GameObject candyObj;
                 candyObj = Instantiate(generalController.candies.candiesToSpawn[generated], transform.position, Quaternion.identity, this.transform);
                 candyObj.transform.localPosition = new Vector3(14, positionTransform, 2);
-                candyObj.transform.localScale = new Vector3(3f, 1f, 3f);
+                candyObj.transform.localScale = new Vector3(5f, 1f, 3f);
                 candyObj.GetComponent<Candy>().general = generalController;
                 generalController.everyCandyOnScene.Add(candyObj.GetComponent<Candy>());
            // }

@@ -25,6 +25,7 @@ public class GeneralController : MonoBehaviour
 
     //a2
     public Mesh specialCandy;
+    public Material specialCandymaterial;
     public List<Candy> everyCandyOnScene;
 
     // mix
@@ -195,6 +196,7 @@ public class GeneralController : MonoBehaviour
 
     public void win()
     {
+        ui.tipAnimator.gameObject.SetActive(false);
         paused = true;
         Debug.Log("win");
 
@@ -214,7 +216,8 @@ public class GeneralController : MonoBehaviour
 
     public void lose()
     {
-        Debug.Log("lose");
+        ui.tipAnimator.gameObject.SetActive(false);
+           Debug.Log("lose");
         paused = true;
         ui.loseScreen.SetActive(true);
 
